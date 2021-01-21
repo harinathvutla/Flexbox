@@ -184,3 +184,47 @@
 	width: 50%;
 	height: 10%;
 }
+
+.container {
+	display: flex;
+	flex-flow: column wrap;
+	align-content: space-between;
+	/* Your container needs a fixed height, and it 
+	 * needs to be taller than your tallest column. */
+	height: 665px;
+
+	/* Optional */
+	background-color: rgb(110, 114, 114);
+	border-radius: 3px;
+	padding: 20px;
+	width: 60%;
+}
+
+.item {
+	width: 32%;
+	position: relative;
+	margin-bottom: 2%;
+	border-radius: 3px;
+	background-color: #34ebe1;
+	box-sizing: border-box;
+}
+
+.item:nth-child(3n + 1) {
+	order: 1;
+}
+.item:nth-child(3n + 2) {
+	order: 2;
+}
+.item:nth-child(3n) {
+	order: 3;
+}
+
+/* Force new columns */
+
+.container::before,
+.container::after {
+	content: '';
+	flex-basis: 100%;
+	width: 0;
+	order: 2;
+}
